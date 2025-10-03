@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-from functions.get_files_info import get_files_info
+from functions.get_file_content import get_file_content
 
 
 def main():
@@ -59,10 +59,10 @@ def main():
 
 
 # Test code
-# def temp():
-#     print(get_files_info("calculator", "."))
-#     print(get_files_info("calculator", "pkg"))
+def temp():
+    print(get_file_content("calculator", "lorem.txt"))
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    temp()

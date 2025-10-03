@@ -1,18 +1,10 @@
-from functions.get_files_info import get_files_info
+from functions.write_file import write_file
 
 
 class main():
-    rootContent = get_files_info("calculator", ".")
-    print(rootContent)
-
-    pkgContent = get_files_info("calculator", "pkg")
-    print(pkgContent)
-
-    binContent = get_files_info("calculator", "bin")
-    print(binContent)
-
-    prevContent = get_files_info("calculator", "../")
-    print(prevContent)
+    print(write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum"))
+    print(write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet"))
+    print(write_file("calculator", "/tmp/temp.txt", "this should not be allowed"))
 
 
 main()
