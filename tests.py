@@ -1,10 +1,22 @@
-from functions.write_file import write_file
+import subprocess
 
 
 class main():
-    print(write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum"))
-    print(write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet"))
-    print(write_file("calculator", "/tmp/temp.txt", "this should not be allowed"))
+    prompts = [
+        "read the contents of main.py",
+        "write 'hello' to main.txt",
+        "run main.py",
+        "list the contents of the pkg directory"
+    ]
+
+    for prompt in prompts:
+        args = ["uv", "run", "main.py", prompt]
+        op = subprocess.run(
+            args,
+            timeout=30,
+            capture_output=True,
+        )
+        print(f"Prompt: {prompt}\nSTDOUT: {op.stdout}\n")
 
 
 main()
